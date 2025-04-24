@@ -22,7 +22,6 @@ modules:
     install:
       - helix
       - alacritty
-      - steam
       - virt-install
       - virt-viewer
       - starship
