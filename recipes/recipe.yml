@@ -25,13 +25,11 @@ modules:
       - virt-install
       - virt-viewer
       - starship
-      - yazi
       - atuin
       - btop
       - nu
       - rust-analyzer
       - zig
-      - zls
       - lldb
     remove:
       - firefox
