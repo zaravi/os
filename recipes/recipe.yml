@@ -25,10 +25,14 @@ modules:
       - virt-install
       - virt-viewer
       - starship
+      - yazi
+      - atuin
       - btop
       - nu
-      - rustup
+      - rust-analyzer
       - zig
+      - zls
+      - lldb
     remove:
       - firefox
       - firefox-langpacks
@@ -48,7 +52,6 @@ modules:
       - kdebugsettings
       - plasma-systemmonitor
       - nvtop
-      - emoji-picker
       - htop
       - firewall-config
       - filelight
@@ -63,5 +66,20 @@ modules:
       install:
         - app.zen_browser.zen 
         - org.gnome.Loupe
+        - com.github.dynobo.normcap
+        - com.obsproject.Studio
+        - com.usebottles.bottles
+        - dev.vencord.Vesktop
+        - fr.handbrake.ghb
+        - io.github.dvlv.boxbuddyrs
+        - io.github.ungoogled_software.ungoogled_chromium
+        - io.github.theevilskeleton.Upscaler
+        - md.obsidian.Obsidian
+        - org.archivekeep.ArchiveKeep
+        - org.gimp.GIMP
+        - org.gimp.GIMP.HEIC
+        - org.signal.Signal
+        - org.telegram.desktop
+        - org.telegram.desktop.webview
 
   - type: signing
