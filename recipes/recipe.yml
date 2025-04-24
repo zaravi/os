@@ -71,7 +71,6 @@ modules:
         - fr.handbrake.ghb
         - io.github.dvlv.boxbuddyrs
         - io.github.ungoogled_software.ungoogled_chromium
-        - io.github.theevilskeleton.Upscaler
         - md.obsidian.Obsidian
         - org.archivekeep.ArchiveKeep
         - org.gimp.GIMP
