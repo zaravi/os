@@ -33,7 +33,9 @@ modules:
       - kcharselect
       - khelpcenter
       - kate
+      - kate-krunner-plugin
       - kjournald
+      - kjournald-libs
       - plasma-systemmonitor
       - nvtop
       - htop
