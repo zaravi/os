@@ -25,6 +25,10 @@ modules:
       - virt-install
       - virt-viewer
       - starship
+      - btop
+      - nu
+      - rustup
+      - zig
     remove:
       - firefox
       - firefox-langpacks
@@ -37,10 +41,16 @@ modules:
       - kate-plugins
       - kjournald
       - kjournald-libs
+      - krfb
+      - krfb-libs
+      - plasma-drkonqi
+      - kdebugsettings
       - plasma-systemmonitor
       - nvtop
       - htop
       - firewall-config
+      - filelight
+      - konsole
 
   - type: default-flatpaks
     notify: true
