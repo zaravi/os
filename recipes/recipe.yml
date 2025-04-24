@@ -34,7 +34,7 @@ modules:
       - kcharselect
       - khelpcenter
       - kate
-      - kjournaldbrowser
+      - kjournald
       - plasma-emojier
       - plasma-systemmonitor
       - nvtop
