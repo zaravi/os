@@ -44,9 +44,11 @@ modules:
       - krfb
       - krfb-libs
       - plasma-drkonqi
+      - kde-partitionmanager
       - kdebugsettings
       - plasma-systemmonitor
       - nvtop
+      - emoji-picker
       - htop
       - firewall-config
       - filelight
