@@ -35,7 +35,7 @@ modules:
       repo-name: flathub
       repo-title: "Flathub (system-wide)"
       install:
-        - org.app.zen_browser.zen 
+        - app.zen_browser.zen 
         - org.gnome.Loupe
       # remove:
       #   - org.gnome.eog
