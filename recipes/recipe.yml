@@ -34,6 +34,7 @@ modules:
       - khelpcenter
       - kate
       - kate-krunner-plugin
+      - kate-plugins
       - kjournald
       - kjournald-libs
       - plasma-systemmonitor
