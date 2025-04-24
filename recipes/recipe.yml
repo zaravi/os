@@ -35,7 +35,6 @@ modules:
       - khelpcenter
       - kate
       - kjournald
-      - plasma-emojier
       - plasma-systemmonitor
       - nvtop
       - htop
