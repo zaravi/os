@@ -5,7 +5,7 @@ name: os
 # description will be included in the image's metadata
 description: Zaravi's personal OS image.
 
-base-image: ghcr.io/ublue-os/kinoite-main
+base-image: ghcr.io/ublue-os/bazzite
 image-version: latest
 
 # module configuration, executed in order
