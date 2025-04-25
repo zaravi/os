@@ -60,7 +60,6 @@ modules:
       - firewall-config
       - filelight
       # - konsole
-
   - type: default-flatpaks
     notify: true
     system:
@@ -119,7 +118,4 @@ modules:
         - org.onlyoffice.desktopeditors
         - xyz.safeworlds.hiit
         - io.unobserved.furtherance
-        
-        
-
   - type: signing
