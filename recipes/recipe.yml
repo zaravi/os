@@ -16,6 +16,28 @@ modules:
       - source: system
         destination: /
 
+  - type: stage
+    name: yazi
+    from: docker.io/library/rust
+    modules:
+      - type: script
+        snippets:
+          - apt-get update && apt-get install -y git make gcc
+          - git clone https://github.com/sxyazi/yazi.git
+          - cd yazi && cargo build --release --locked
+          - mkdir -p /out/bin/
+          - mv target/release/yazi target/release/ya /out/bin/
+
+  - type: copy
+    from: yazi
+    src: /out/bin/yazi
+    dest: /usr/local/bin/
+
+  - type: copy
+    from: yazi
+    src: /out/bin/ya
+    dest: /usr/local/bin/
+
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
