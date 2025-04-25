@@ -48,7 +48,7 @@ modules:
       - kjournald-libs
       - krfb
       - krfb-libs
-      - plasma-drkonqi
+      # - plasma-drkonqi
       - kde-partitionmanager
       - kdebugsettings
       - plasma-systemmonitor
