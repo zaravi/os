@@ -32,8 +32,8 @@ modules:
       - zig
       - lldb
     remove:
-      - firefox
-      - firefox-langpacks
+      # - firefox
+      # - firefox-langpacks
       - kwrite
       - kfind
       - kcharselect
