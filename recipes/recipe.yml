@@ -50,7 +50,7 @@ modules:
       - kdebugsettings
       - plasma-systemmonitor
       - nvtop
-      - htop
+      # - htop
       - firewall-config
       - filelight
       - konsole
