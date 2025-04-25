@@ -23,6 +23,7 @@ modules:
     install:
       - helix
       - alacritty
+      - ghostty
       - virt-manager
       - edk2-ovmf
       - qemu
