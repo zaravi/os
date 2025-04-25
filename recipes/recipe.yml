@@ -8,19 +8,6 @@ description: Zaravi's personal OS image.
 base-image: ghcr.io/ublue-os/bazzite
 image-version: latest
 
-stages:
-  - name: yazi
-    from: docker.io/library/rust
-    modules:
-      - type: script
-        snippets:
-          - apt-get update && apt-get install -y git make gcc
-          - git clone https://github.com/sxyazi/yazi.git
-          - cd yazi && cargo build --release --locked
-          - mkdir -p /out/bin/
-          - mv target/release/yazi /out/bin/
-          - mv target/release/ya /out/bin/
-
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
@@ -29,19 +16,10 @@ modules:
       - source: system
         destination: /
 
-  - type: copy
-    from: yazi
-    src: /out/bin/yazi
-    dest: /usr/local/bin/
-
-  - type: copy
-    from: yazi
-    src: /out/bin/ya
-    dest: /usr/local/bin/
-
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-%OS_VERSION%/lihaohong-yazi-fedora-%OS_VERSION%.repo
     install:
       - helix
       - alacritty
@@ -58,6 +36,7 @@ modules:
       - zig
       - lldb
       - zoxide
+      - yazi
     remove:
       # - firefox
       # - firefox-langpacks
