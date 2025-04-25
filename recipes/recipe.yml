@@ -34,6 +34,7 @@ modules:
       - rust-analyzer
       - zig
       - lldb
+      - zoxide
     remove:
       # - firefox
       # - firefox-langpacks
