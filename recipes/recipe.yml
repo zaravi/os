@@ -22,9 +22,12 @@ modules:
     install:
       - helix
       - alacritty
-      - virt-install
+      - virt-manager
+      - edk2-ovmf
+      - qemu
       - virt-viewer
       - starship
+      - syncthing
       - atuin
       - btop
       - nu
@@ -53,7 +56,8 @@ modules:
       # - htop
       - firewall-config
       - filelight
-      - konsole
+      # - konsole
+      - kde-ptyxis
 
   - type: default-flatpaks
     notify: true
@@ -78,5 +82,43 @@ modules:
         - org.signal.Signal
         - org.telegram.desktop
         - org.telegram.desktop.webview
+        - org.fooyin.fooyin
+        - org.blender.Blender
+        - net.nokyan.Resources
+        - io.gitlab.liferooter.TextPieces
+        - io.github.nokse22.asciidraw
+        - io.github.nokse22.Exhibit
+        - io.github.nate_xyz.Chromatic
+        - io.bassi.Amberol
+        - io.github.TheWisker.Cavasik
+        - io.github.flattool.Warehouse
+        - io.gitlab.theevilskeleton.Upscaler
+        - app.drey.Warp
+        - app.fotema.Fotema
+        - app.fotema.Fotema.HEIC
+        - com.biwig.BitwigStudio
+        - com.cassidyjames.butler
+        - com.konstantintutsch.Lock
+        - com.protonvpn.www
+        - com.rafaelmardojai.Blanket
+        - com.system76.Popsicle
+        - de.haeckerfelix.AudioSharing
+        - dev.geopjr.Calligraphy
+        - fr.romainvigier.MetadataCleaner
+        - fm.reaper.Reaper
+        - io.github.input_leap.input-leap
+        - org.gnome.Papers
+        - org.gnome.Showtime
+        - org.gnome.baobab
+        - org.kde.kdenlive
+        - org.kde.krita
+        - org.nickvision.tubeconverter
+        - org.musicbrainz.Picard
+        - org.remmina.Remmina
+        - org.onlyoffice.desktopeditors
+        - xyz.safeworlds.hiit
+        - io.unobserved.furtherance
+        
+        
 
   - type: signing
