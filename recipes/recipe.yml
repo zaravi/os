@@ -33,8 +33,10 @@ modules:
       - atuin
       - btop
       - nu
+      - rustup
       - rust-analyzer
       - zig
+      - nodejs
       - lldb
       - zoxide
       - yazi
@@ -61,6 +63,7 @@ modules:
       - firewall-config
       - filelight
       # - konsole
+      - ptyxis
   - type: default-flatpaks
     notify: true
     system:
