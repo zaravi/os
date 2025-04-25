@@ -8,16 +8,8 @@ description: Zaravi's personal OS image.
 base-image: ghcr.io/ublue-os/bazzite
 image-version: latest
 
-# module configuration, executed in order
-# you can include multiple instances of the same module
-modules:
-  - type: files
-    files:
-      - source: system
-        destination: /
-
-  - type: stage
-    name: yazi
+stages:
+  - name: yazi
     from: docker.io/library/rust
     modules:
       - type: script
@@ -28,6 +20,14 @@ modules:
           - mkdir -p /out/bin/
           - mv target/release/yazi /out/bin/
           - mv target/release/ya /out/bin/
+
+# module configuration, executed in order
+# you can include multiple instances of the same module
+modules:
+  - type: files
+    files:
+      - source: system
+        destination: /
 
   - type: copy
     from: yazi
