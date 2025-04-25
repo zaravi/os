@@ -95,7 +95,6 @@ modules:
         - app.drey.Warp
         - app.fotema.Fotema
         - app.fotema.Fotema.HEIC
-        - com.biwig.BitwigStudio
         - com.cassidyjames.butler
         - com.konstantintutsch.Lock
         - com.protonvpn.www
