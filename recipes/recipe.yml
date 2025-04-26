@@ -21,26 +21,25 @@ modules:
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-%OS_VERSION%/lihaohong-yazi-fedora-%OS_VERSION%.repo
     install:
-      - helix
-      - alacritty
-      # "I'd probably go with ghostty on gnome. It still has some bugs with starship."
-      # - ghostty
-      - virt-manager
-      - edk2-ovmf
+      - alacritty # Terminal
+
+      - nu # My Shell
+      - starship # Prompt
+      - atuin # Shell History
+      - zoxide # Magic cd
+
+      - helix # Editor
+      - yazi # File Manager
+      - btop # System Monitor
+      
+      - syncthing # Local File Sync
+
+      # Virtualization
       - qemu
-      - virt-viewer
-      - starship
-      - syncthing
-      - atuin
-      - btop
-      - nu
-      - cargo
-      - rust-analyzer
-      - zig
-      - nodejs
-      - lldb
-      - zoxide
-      - yazi
+      - edk2-ovmf
+      - virt-manager
+      - virt-viewer 
+
     remove:
       - kwrite
       - kfind
@@ -59,13 +58,16 @@ modules:
       - nvtop
       - firewall-config
       - filelight
-      # "These are installed in kinotie."
+
+      # "These are installed in kinotie. But removed in Bazzite."
       # - firefox
       # - firefox-langpacks
       # - plasma-drkonqi
       # - htop
       # - konsole
-      - ptyxis
+       
+      - ptyxis # Default Bazzite Terminal.
+
   - type: default-flatpaks
     notify: true
     system:
@@ -124,4 +126,5 @@ modules:
         - org.onlyoffice.desktopeditors
         - xyz.safeworlds.hiit
         - io.unobserved.furtherance
+
   - type: signing
