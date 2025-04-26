@@ -23,7 +23,8 @@ modules:
     install:
       - helix
       - alacritty
-      - ghostty
+      # "I'd probably go with ghostty on gnome. It still has some bugs with starship."
+      # - ghostty
       - virt-manager
       - edk2-ovmf
       - qemu
@@ -33,7 +34,7 @@ modules:
       - atuin
       - btop
       - nu
-      - rustup
+      - cargo
       - rust-analyzer
       - zig
       - nodejs
@@ -41,8 +42,6 @@ modules:
       - zoxide
       - yazi
     remove:
-      # - firefox
-      # - firefox-langpacks
       - kwrite
       - kfind
       - kcharselect
@@ -54,14 +53,17 @@ modules:
       - kjournald-libs
       - krfb
       - krfb-libs
-      # - plasma-drkonqi
       - kde-partitionmanager
       - kdebugsettings
       - plasma-systemmonitor
       - nvtop
-      # - htop
       - firewall-config
       - filelight
+      # "These are installed in kinotie."
+      # - firefox
+      # - firefox-langpacks
+      # - plasma-drkonqi
+      # - htop
       # - konsole
       - ptyxis
   - type: default-flatpaks
