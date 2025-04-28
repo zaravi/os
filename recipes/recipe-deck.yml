@@ -1,0 +1,132 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+# image will be published to ghcr.io/<user>/<name>
+name: Zavite
+# description will be included in the image's metadata
+description: Zaravi's custom OS image based on Bazzite.
+
+base-image: ghcr.io/ublue-os/bazzite-deck
+image-version: latest
+
+# module configuration, executed in order
+# you can include multiple instances of the same module
+modules:
+  - type: files
+    files:
+      - source: system
+        destination: /
+
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-%OS_VERSION%/lihaohong-yazi-fedora-%OS_VERSION%.repo
+    install:
+      - corectrl # AMDGPU util
+      - alacritty # Terminal
+      - konsole # Terminal (copy paste important without keyboard)
+
+      - nu # My Shell
+      - starship # Prompt
+      - atuin # Shell History
+      - zoxide # Magic cd
+
+      - helix # Editor
+      - yazi # File Manager
+      - btop # System Monitor
+      
+      - syncthing # Local File Sync
+
+      # Virtualization
+      - qemu
+      - edk2-ovmf
+      - virt-manager
+      - virt-viewer 
+
+    remove:
+      - kwrite
+      - kfind
+      - kcharselect
+      - khelpcenter
+      - kate
+      - kate-krunner-plugin
+      - kate-plugins
+      - kjournald
+      - kjournald-libs
+      - krfb
+      - krfb-libs
+      - kde-partitionmanager
+      - kdebugsettings
+      - plasma-systemmonitor
+      - nvtop
+      - firewall-config
+      - filelight
+
+      # "These are installed in kinotie. But removed in Bazzite."
+      # - firefox
+      # - firefox-langpacks
+      # - plasma-drkonqi
+      # - htop
+      # - konsole
+       
+      - ptyxis # Default Bazzite Terminal.
+
+  - type: default-flatpaks
+    notify: true
+    system:
+      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      repo-name: flathub
+      repo-title: "Flathub (system-wide)"
+      install:
+        - app.zen_browser.zen 
+        - org.gnome.Loupe
+        - com.github.dynobo.normcap
+        - com.obsproject.Studio
+        - com.usebottles.bottles
+        - dev.vencord.Vesktop
+        - fr.handbrake.ghb
+        - io.github.dvlv.boxbuddyrs
+        - io.github.ungoogled_software.ungoogled_chromium
+        - md.obsidian.Obsidian
+        - org.archivekeep.ArchiveKeep
+        - org.gimp.GIMP
+        - org.gimp.GIMP.HEIC
+        - org.signal.Signal
+        - org.telegram.desktop
+        - org.telegram.desktop.webview
+        - org.fooyin.fooyin
+        - org.blender.Blender
+        - net.nokyan.Resources
+        - io.gitlab.liferooter.TextPieces
+        - io.github.nokse22.asciidraw
+        - io.github.nokse22.Exhibit
+        - io.github.nate_xyz.Chromatic
+        - io.bassi.Amberol
+        - io.github.TheWisker.Cavasik
+        - io.github.flattool.Warehouse
+        - io.gitlab.theevilskeleton.Upscaler
+        - app.drey.Warp
+        - app.fotema.Fotema
+        - app.fotema.Fotema.HEIC
+        - com.cassidyjames.butler
+        - com.konstantintutsch.Lock
+        - com.protonvpn.www
+        - com.rafaelmardojai.Blanket
+        - com.system76.Popsicle
+        - de.haeckerfelix.AudioSharing
+        - dev.geopjr.Calligraphy
+        - fr.romainvigier.MetadataCleaner
+        - fm.reaper.Reaper
+        - io.github.input_leap.input-leap
+        - org.gnome.Papers
+        - org.gnome.Showtime
+        - org.gnome.baobab
+        - org.kde.kdenlive
+        - org.kde.krita
+        - org.nickvision.tubeconverter
+        - org.musicbrainz.Picard
+        - org.remmina.Remmina
+        - org.onlyoffice.desktopeditors
+        - xyz.safeworlds.hiit
+        - io.unobserved.furtherance
+
+  - type: signing
