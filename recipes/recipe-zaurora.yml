@@ -5,7 +5,7 @@ name: zaurora
 # description will be included in the image's metadata
 description: Zaravi's custom OS image based on Aurora.
 
-base-image: ghcr.io/ublue-os/bazzite
+base-image: ghcr.io/ublue-os/aurora
 image-version: latest
 
 # module configuration, executed in order
