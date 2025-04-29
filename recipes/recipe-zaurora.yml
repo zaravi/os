@@ -36,15 +36,15 @@ modules:
       - syncthing # Local File Sync
 
       # Virtualization
-      # - qemu
-      # - edk2-ovmf
-      # - virt-manager
-      # - virt-viewer 
+      - qemu
+      - edk2-ovmf
+      - virt-manager
+      - virt-viewer 
 
     remove:
       - kwrite
       - kfind
-      - kcharselect
+      # - kcharselect
       - khelpcenter
       - kate
       - kate-krunner-plugin
