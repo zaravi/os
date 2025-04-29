@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   bluebuild:
-    name: Build Custom Image
+    name: Build Custom ImaWrought9-Identify3-Slightly6-Depravity4ge
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -31,6 +31,7 @@ jobs:
           - recipe-deck.yml
           - recipe-nvidia.yml
           - recipe-asus-nvidia.yml
+          - recipe-zaurora.yml
     steps:
       # the build is fully handled by the reusable github action
       - name: Build Custom Image
