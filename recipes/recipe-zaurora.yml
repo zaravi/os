@@ -51,12 +51,12 @@ modules:
       - kate-plugins
       - kjournald
       - kjournald-libs
-      - krfb
-      - krfb-libs
+      # - krfb
+      # - krfb-libs
       - kde-partitionmanager
       - kdebugsettings
       - plasma-systemmonitor
-      - nvtop
+      # - nvtop
       - firewall-config
       - filelight
 
