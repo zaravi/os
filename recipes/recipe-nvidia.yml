@@ -43,9 +43,7 @@ modules:
       - virt-viewer 
 
       - obs-studio
-      - obs-studio-libs
-      - obs-studio-plugin-vkcapture
-      - obs-studio-plugin-vaapi
+
 
 
     remove:
