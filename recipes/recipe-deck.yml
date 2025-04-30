@@ -42,6 +42,12 @@ modules:
       - virt-manager
       - virt-viewer 
 
+      - obs-studio
+      - obs-studio-libs
+      - obs-studio-plugin-vkcapture
+      - obs-studio-plugin-vaapi
+      - obs-studio-plugin-x264 
+      
     remove:
       - kwrite
       - kfind

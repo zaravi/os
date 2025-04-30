@@ -39,7 +39,13 @@ modules:
       - qemu
       - edk2-ovmf
       - virt-manager
-      - virt-viewer 
+      - virt-viewer
+
+      - obs-studio
+      - obs-studio-libs
+      - obs-studio-plugin-vkcapture
+      - obs-studio-plugin-vaapi
+      - obs-studio-plugin-x264 
 
     remove:
       - kwrite
