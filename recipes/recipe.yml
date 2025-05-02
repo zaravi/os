@@ -42,6 +42,9 @@ modules:
       - virt-viewer
 
       - obs-studio
+      - obs-studio-libs
+      - openh264
+      #- gstreamer1-plugin-openh264
   
 
     remove:

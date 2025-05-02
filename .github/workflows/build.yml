@@ -29,9 +29,9 @@ jobs:
           # !! Add your recipes here
           - recipe.yml
           - recipe-deck.yml
-          - recipe-nvidia.yml
-          - recipe-asus-nvidia.yml
-          - recipe-zaurora.yml
+          #- recipe-nvidia.yml
+          #- recipe-asus-nvidia.yml
+          #- recipe-zaurora.yml
     steps:
       # the build is fully handled by the reusable github action
       - name: Build Custom Image
