@@ -54,12 +54,12 @@ modules:
       - kjournald-libs
       - krfb
       - krfb-libs
-      - kde-partitionmanager
+      # - kde-partitionmanager
       - kdebugsettings
       - plasma-systemmonitor
       - nvtop
       - firewall-config
-      - filelight
+      # - filelight
 
       # "These are installed in kinotie. But removed in Bazzite."
       # - firefox
