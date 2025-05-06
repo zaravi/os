@@ -20,6 +20,9 @@ modules:
     repos:
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-%OS_VERSION%/lihaohong-yazi-fedora-%OS_VERSION%.repo
+      # RPM Fusion repositories for OBS Studio and multimedia codecs
+      - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
+      - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
     install:
       - corectrl # AMDGPU util
       - alacritty # Terminal
@@ -41,6 +44,26 @@ modules:
       - edk2-ovmf
       - virt-manager
       - virt-viewer
+      
+      # OBS Studio with full codec support
+      - obs-studio
+      - obs-studio-plugin-x264      # Critical for Twitch streaming
+      - obs-studio-plugin-vlc-video
+      - obs-studio-plugin-vkcapture  # For game capture
+      
+      # AMD encoding support for OBS
+      - libva-utils
+      - mesa-va-drivers-freeworld   # Enhanced AMD VA-API drivers from RPM Fusion
+      
+      # Virtual camera support
+      - kmod-v4l2loopback
+      
+      # Complete multimedia support
+      - ffmpeg                      # Full version from RPM Fusion
+      - gstreamer1-plugins-bad-free
+      - gstreamer1-plugins-good
+      - gstreamer1-plugins-base
+      - gstreamer1-libav
 
     remove:
       - kwrite
@@ -80,7 +103,6 @@ modules:
         - app.zen_browser.zen 
         - org.gnome.Loupe
         - com.github.dynobo.normcap
-        - com.obsproject.Studio
         - com.usebottles.bottles
         - dev.vencord.Vesktop
         - fr.handbrake.ghb
