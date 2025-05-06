@@ -53,7 +53,6 @@ modules:
       
       # AMD encoding support for OBS
       - libva-utils
-      - mesa-va-drivers-freeworld   # Enhanced AMD VA-API drivers from RPM Fusion
       
       # Virtual camera support
       - kmod-v4l2loopback
