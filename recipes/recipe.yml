@@ -1,6 +1,6 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-# image will be published to ghcr.io/<user>/<name>
+# image will be published to ghcr.io/<user>/<n>
 name: zavite
 # description will be included in the image's metadata
 description: Zaravi's custom OS image based on Bazzite.
@@ -125,6 +125,10 @@ modules:
       - obs-studio-plugin-vlc-video
       - obs-studio-plugin-vkcapture  # For game capture
       
+      # AMD encoding support for OBS
+      - libva-utils
+      - mesa-va-drivers-freeworld   # Enhanced AMD VA-API drivers from RPM Fusion
+      
       # Virtual camera support
       - kmod-v4l2loopback
       
@@ -153,6 +157,8 @@ modules:
       - nvtop
       - firewall-config
       # - filelight
+      - ffmpeg-free  # Remove limited Fedora version
+      - libobs_vkcapture  # Removing conflicting package with obs-studio-plugin-vkcapture
 
       # "These are installed in kinotie. But removed in Bazzite."
       # - firefox
