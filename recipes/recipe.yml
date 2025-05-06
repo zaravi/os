@@ -126,7 +126,6 @@ modules:
       
       # Virtual camera support
       - kmod-v4l2loopback
-      - mesa-va-drivers-freeworld   # Enhanced AMD VA-API drivers from RPM Fusion
       
       # Complete multimedia support
       - ffmpeg                      # Full version from RPM Fusion
