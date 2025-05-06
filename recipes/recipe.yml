@@ -8,6 +8,78 @@ description: Zaravi's custom OS image based on Bazzite.
 base-image: ghcr.io/ublue-os/bazzite
 image-version: latest
 
+# Building Klassy and KWin-effects-forceblur from source
+stages:
+  - name: builder
+    from: ghcr.io/ublue-os/bazzite:latest
+    modules:
+      # Install build dependencies in the builder stage
+      - type: rpm-ostree
+        install:
+          # Common build dependencies
+          - git
+          - cmake
+          - gcc-c++
+          - extra-cmake-modules
+          # KDE/KF6 development dependencies
+          - qt6-qtbase-devel
+          - qt6-qtbase-private-devel
+          - qt6-qtdeclarative-devel
+          - qt6-qtsvg-devel
+          - qt6-qttools-devel
+          - kf6-kcmutils-devel
+          - kf6-kconfig-devel
+          - kf6-kconfigwidgets-devel
+          - kf6-kcoreaddons-devel
+          - kf6-kguiaddons-devel
+          - kf6-ki18n-devel
+          - kf6-kiconthemes-devel
+          - kf6-kwindowsystem-devel
+          # Additional dependencies for Klassy
+          - kf6-frameworkintegration-devel 
+          - kf6-kirigami-devel
+          - kdecoration-devel
+          # Additional dependencies for kwin-effects-forceblur
+          - kwin-devel
+          - kf6-kcrash-devel
+          - kf6-kglobalaccel-devel
+          - kf6-kio-devel
+          - kf6-kservice-devel
+          - kf6-knotifications-devel
+          - libepoxy-devel
+          - wayland-devel
+
+      # Build Klassy
+      - type: script
+        no-cache: true
+        snippets:
+          - |
+            cd /tmp
+            git clone https://github.com/paulmcauley/klassy
+            cd klassy
+            git checkout plasma6.2
+            mkdir build
+            cd build
+            cmake ../ -DCMAKE_INSTALL_PREFIX=/usr
+            make -j$(nproc)
+            mkdir -p /staged-klassy/usr
+            make install DESTDIR=/staged-klassy
+
+      # Build KWin-effects-forceblur
+      - type: script
+        no-cache: true
+        snippets:
+          - |
+            cd /tmp
+            git clone https://github.com/taj-ny/kwin-effects-forceblur
+            cd kwin-effects-forceblur
+            mkdir build
+            cd build
+            cmake ../ -DCMAKE_INSTALL_PREFIX=/usr
+            make -j$(nproc)
+            mkdir -p /staged-forceblur/usr
+            make install DESTDIR=/staged-forceblur
+
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
@@ -15,6 +87,12 @@ modules:
     files:
       - source: system
         destination: /
+      # Copy Klassy files from builder stage
+      - source: /stage/builder/staged-klassy/usr
+        destination: /usr
+      # Copy KWin-effects-forceblur files from builder stage
+      - source: /stage/builder/staged-forceblur/usr
+        destination: /usr
 
   - type: rpm-ostree
     repos:
