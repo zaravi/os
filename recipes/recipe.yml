@@ -85,13 +85,14 @@ stages:
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-  # Use Bling module for better repo and codec management
+  # Use Bling module for better codec management
   - type: bling
-    install:
-      - rpmfusion-free
-      - rpmfusion-nonfree
-      - amd-utils
-      - media-codec
+    repos:
+      rpmfusion: true
+    packages:
+      - obs-studio-plugin-x264  # Critical for Twitch streaming
+      - mesa-va-drivers-freeworld
+      - ffmpeg  # Full version from RPM Fusion
 
   - type: files
     files:
@@ -126,7 +127,6 @@ modules:
       
       # OBS Studio with full codec support
       - obs-studio
-      - obs-studio-plugin-x264      # Critical for Twitch streaming
       - obs-studio-plugin-vlc-video
       - obs-studio-plugin-vkcapture  # For game capture
       
