@@ -25,10 +25,10 @@ jobs:
       matrix:
         recipe:
           - recipe.yml
-          - recipe-deck.yml
-          - recipe-nvidia.yml
-          - recipe-asus-nvidia.yml
-          - recipe-zaurora.yml
+          # - recipe-deck.yml
+          # - recipe-nvidia.yml
+          # - recipe-asus-nvidia.yml
+          # - recipe-zaurora.yml
     steps:
       - name: Build Custom Image
         uses: blue-build/github-action@v1.8
