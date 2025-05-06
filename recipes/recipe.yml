@@ -62,8 +62,9 @@ stages:
             cd build
             cmake ../ -DCMAKE_INSTALL_PREFIX=/usr
             make -j$(nproc)
-            mkdir -p /staged-klassy/usr
-            make install DESTDIR=/staged-klassy
+            mkdir -p /tmp/staged-klassy/usr
+            make install DESTDIR=/tmp/staged-klassy
+            cp -r /tmp/staged-klassy/usr /usr/
 
       # Build KWin-effects-forceblur
       - type: script
@@ -77,8 +78,9 @@ stages:
             cd build
             cmake ../ -DCMAKE_INSTALL_PREFIX=/usr
             make -j$(nproc)
-            mkdir -p /staged-forceblur/usr
-            make install DESTDIR=/staged-forceblur
+            mkdir -p /tmp/staged-forceblur/usr
+            make install DESTDIR=/tmp/staged-forceblur
+            cp -r /tmp/staged-forceblur/usr /usr/
 
 # module configuration, executed in order
 # you can include multiple instances of the same module
@@ -87,12 +89,6 @@ modules:
     files:
       - source: system
         destination: /
-      # Copy Klassy files from builder stage
-      - source: /stage/builder/staged-klassy/usr
-        destination: /usr
-      # Copy KWin-effects-forceblur files from builder stage
-      - source: /stage/builder/staged-forceblur/usr
-        destination: /usr
 
   - type: rpm-ostree
     repos:
