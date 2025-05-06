@@ -85,11 +85,10 @@ stages:
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-  # Use Bling module for better codec management
+  # Add RPM Fusion repositories
   - type: bling
     install:
       - rpmfusion
-      - media
 
   - type: files
     files:
