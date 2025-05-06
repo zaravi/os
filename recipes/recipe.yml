@@ -136,12 +136,12 @@ modules:
       # Virtual camera support
       - kmod-v4l2loopback
       
-      # Complete multimedia support
-      - ffmpeg                      # Full version from RPM Fusion
-      - gstreamer1-plugins-bad-free
-      - gstreamer1-plugins-good
-      - gstreamer1-plugins-base
-      - gstreamer1-libav
+      # Complete multimedia support - temporarily disabled for debugging
+      # - ffmpeg                      # Full version from RPM Fusion
+      # - gstreamer1-plugins-bad-free
+      # - gstreamer1-plugins-good
+      # - gstreamer1-plugins-base
+      # - gstreamer1-libav
 
     remove:
       - kwrite
