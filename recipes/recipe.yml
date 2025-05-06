@@ -109,6 +109,7 @@ modules:
       - helix # Editor
       - yazi # File Manager
       - btop # System Monitor
+      - pipx # Handy to have
       
       - syncthing # Local File Sync
 
