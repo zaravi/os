@@ -126,7 +126,7 @@ modules:
       
       # OBS Studio with full codec support
       - obs-studio
-      - obs-studio-plugin-x264      # Critical for Twitch streaming
+      # - obs-studio-plugin-x264      # Critical for Twitch streaming
       # - obs-studio-plugin-vlc-video
       # - obs-studio-plugin-vkcapture  # For game capture
       
