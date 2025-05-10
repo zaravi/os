@@ -85,10 +85,7 @@ stages:
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-  # Add RPM Fusion repositories
-  - type: bling
-    install:
-      - rpmfusion
+  # Bazzite already includes RPM Fusion repos by default
 
   - type: files
     files:
@@ -99,9 +96,6 @@ modules:
     repos:
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
       - https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-%OS_VERSION%/lihaohong-yazi-fedora-%OS_VERSION%.repo
-      # RPM Fusion repositories for OBS Studio and multimedia codecs
-      - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
-      - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
     install:
       - corectrl # AMDGPU util
       - alacritty # Terminal
@@ -140,11 +134,8 @@ modules:
       - mesa-vdpau-drivers-freeworld
       - libva-utils
 
-      # Streaming support for Twitch
-      - gstreamer1-plugins-base
-      - gstreamer1-plugins-good
+      # Streaming support for Twitch (essential packages)
       - gstreamer1-plugins-bad-free
-      - gstreamer1-plugins-bad-free-extras
       - gstreamer1-plugins-bad-freeworld
       - gstreamer1-plugins-ugly
       - gstreamer1-vaapi
@@ -197,6 +188,7 @@ modules:
       - ptyxis # Default Bazzite Terminal.
 
     # Replace Fedora's mesa drivers with RPMFusion freeworld versions
+    # This may be redundant in Bazzite but ensures proper driver installation
     override_replace:
       - from: fedora
         to: rpmfusion-free
