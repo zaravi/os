@@ -126,22 +126,35 @@ modules:
       
       # OBS Studio with full codec support
       - obs-studio
-      # - obs-studio-plugin-x264      # Critical for Twitch streaming
-      # - obs-studio-plugin-vlc-video
-      # - obs-studio-plugin-vkcapture  # For game capture
-      
+      - obs-studio-libs
+      - obs-studio-plugin-x264      # Critical for Twitch streaming
+      - obs-studio-plugin-vlc-video
+      - obs-studio-plugin-vkcapture  # For game capture
+
+      # Full ffmpeg and essential packages (required for OBS)
+      - ffmpeg
+      - ffmpeg-libs
+
       # AMD encoding support for OBS
-      # - libva-utils
-      
+      - mesa-va-drivers-freeworld
+      - mesa-vdpau-drivers-freeworld
+      - libva-utils
+
+      # Streaming support for Twitch
+      - gstreamer1-plugins-base
+      - gstreamer1-plugins-good
+      - gstreamer1-plugins-bad-free
+      - gstreamer1-plugins-bad-free-extras
+      - gstreamer1-plugins-bad-freeworld
+      - gstreamer1-plugins-ugly
+      - gstreamer1-vaapi
+
+      # Wayland screen capture support
+      - libdecor
+      - pipewire-plugin-libcamera
+
       # Virtual camera support
-      # - kmod-v4l2loopback
-      
-      # Complete multimedia support - temporarily disabled for debugging
-      # - ffmpeg                      # Full version from RPM Fusion
-      # - gstreamer1-plugins-bad-free
-      # - gstreamer1-plugins-good
-      # - gstreamer1-plugins-base
-      # - gstreamer1-libav
+      - kmod-v4l2loopback
 
     remove:
       - kwrite
@@ -161,7 +174,17 @@ modules:
       - nvtop
       - firewall-config
       # - filelight
-      - ffmpeg-free  # Remove limited Fedora version
+
+      # Remove conflicting multimedia packages
+      - ffmpeg-free
+      - libavcodec-free
+      - libavdevice-free
+      - libavfilter-free
+      - libavformat-free
+      - libavutil-free
+      - libpostproc-free
+      - libswresample-free
+      - libswscale-free
       - libobs_vkcapture  # Removing conflicting package with obs-studio-plugin-vkcapture
 
       # "These are installed in kinotie. But removed in Bazzite."
@@ -172,6 +195,14 @@ modules:
       # - konsole
        
       - ptyxis # Default Bazzite Terminal.
+
+    # Replace Fedora's mesa drivers with RPMFusion freeworld versions
+    override_replace:
+      - from: fedora
+        to: rpmfusion-free
+        packages:
+          - mesa-va-drivers
+          - mesa-vdpau-drivers
 
   - type: default-flatpaks
     notify: true
