@@ -113,8 +113,8 @@ modules:
       - ffmpeg
       - ffmpeg-libs
 
-      - mesa-va-drivers-freeworld
-      - mesa-vdpau-drivers-freeworld
+      #- mesa-va-drivers-freeworld
+      #- mesa-vdpau-drivers-freeworld
       - libva-utils
 
       - gstreamer1-plugins-bad-free
