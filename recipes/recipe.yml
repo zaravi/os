@@ -110,8 +110,8 @@ modules:
       # - obs-studio-plugin-vlc-video
       # - obs-studio-plugin-vkcapture
 
-      - ffmpeg
-      - ffmpeg-libs
+      # - ffmpeg
+      # - ffmpeg-libs
 
       # - mesa-va-drivers-freeworld
       # - mesa-vdpau-drivers-freeworld
@@ -145,7 +145,7 @@ modules:
       - firewall-config
 
       # Remove conflicting multimedia packages
-      - ffmpeg-free
+      # - ffmpeg-free
       # - libavcodec-free
       # - libavdevice-free
       # - libavfilter-free
