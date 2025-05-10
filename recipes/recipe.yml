@@ -92,15 +92,6 @@ modules:
       - source: system
         destination: /
 
-  # Replace Fedora's mesa drivers with RPMFusion freeworld versions
-  - type: override-modules
-    modules:
-      - from: fedora
-        to: rpmfusion-free
-        packages:
-          - mesa-va-drivers
-          - mesa-vdpau-drivers
-
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
@@ -186,6 +177,10 @@ modules:
       - libswresample-free
       - libswscale-free
       - libobs_vkcapture  # Removing conflicting package with obs-studio-plugin-vkcapture
+
+      # Remove standard mesa drivers to use freeworld versions
+      - mesa-va-drivers
+      - mesa-vdpau-drivers
 
       # "These are installed in kinotie. But removed in Bazzite."
       # - firefox
