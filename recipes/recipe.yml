@@ -1,27 +1,20 @@
 ---
-# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-# image will be published to ghcr.io/<user>/<n>
 name: zavite
-# description will be included in the image's metadata
 description: Zaravi's custom OS image based on Bazzite.
 
 base-image: ghcr.io/ublue-os/bazzite
 image-version: latest
 
-# Building Klassy and KWin-effects-forceblur from source
 stages:
   - name: builder
     from: ghcr.io/ublue-os/bazzite:latest
     modules:
-      # Install build dependencies in the builder stage
       - type: rpm-ostree
         install:
-          # Common build dependencies
           - git
           - cmake
           - gcc-c++
           - extra-cmake-modules
-          # KDE/KF6 development dependencies
           - qt6-qtbase-devel
           - qt6-qtbase-private-devel
           - qt6-qtdeclarative-devel
@@ -35,11 +28,9 @@ stages:
           - kf6-ki18n-devel
           - kf6-kiconthemes-devel
           - kf6-kwindowsystem-devel
-          # Additional dependencies for Klassy
           - kf6-frameworkintegration-devel 
           - kf6-kirigami-devel
           - kdecoration-devel
-          # Additional dependencies for kwin-effects-forceblur
           - kwin-devel
           - kf6-kcrash-devel
           - kf6-kglobalaccel-devel
@@ -49,7 +40,6 @@ stages:
           - libepoxy-devel
           - wayland-devel
 
-      # Build Klassy
       - type: script
         no-cache: true
         snippets:
@@ -66,7 +56,6 @@ stages:
             make install DESTDIR=/tmp/staged-klassy
             cp -r /tmp/staged-klassy/usr /usr/
 
-      # Build KWin-effects-forceblur
       - type: script
         no-cache: true
         snippets:
@@ -82,11 +71,7 @@ stages:
             make install DESTDIR=/tmp/staged-forceblur
             cp -r /tmp/staged-forceblur/usr /usr/
 
-# module configuration, executed in order
-# you can include multiple instances of the same module
 modules:
-  # Bazzite already includes RPM Fusion repos by default
-
   - type: files
     files:
       - source: system
@@ -121,30 +106,25 @@ modules:
       # OBS Studio with full codec support
       - obs-studio
       - obs-studio-libs
-      - obs-studio-plugin-x264      # Critical for Twitch streaming
+      - obs-studio-plugin-x264 
       - obs-studio-plugin-vlc-video
-      - obs-studio-plugin-vkcapture  # For game capture
+      - obs-studio-plugin-vkcapture
 
-      # Full ffmpeg and essential packages (required for OBS)
       - ffmpeg
       - ffmpeg-libs
 
-      # AMD encoding support for OBS
       - mesa-va-drivers-freeworld
       - mesa-vdpau-drivers-freeworld
       - libva-utils
 
-      # Streaming support for Twitch (essential packages)
       - gstreamer1-plugins-bad-free
       - gstreamer1-plugins-bad-freeworld
       - gstreamer1-plugins-ugly
       - gstreamer1-vaapi
 
-      # Wayland screen capture support
       - libdecor
       - pipewire-plugin-libcamera
 
-      # Virtual camera support
       - kmod-v4l2loopback
 
     remove:
@@ -159,12 +139,10 @@ modules:
       - kjournald-libs
       - krfb
       - krfb-libs
-      # - kde-partitionmanager
       - kdebugsettings
       - plasma-systemmonitor
       - nvtop
       - firewall-config
-      # - filelight
 
       # Remove conflicting multimedia packages
       - ffmpeg-free
@@ -176,11 +154,9 @@ modules:
       - libpostproc-free
       - libswresample-free
       - libswscale-free
-      - libobs_vkcapture  # Removing conflicting package with obs-studio-plugin-vkcapture
+      - libobs_vkcapture
 
-      # Remove standard mesa drivers to use freeworld versions
       - mesa-va-drivers
-      - mesa-vdpau-drivers
 
       # "These are installed in kinotie. But removed in Bazzite."
       # - firefox

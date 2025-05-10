@@ -6,9 +6,6 @@ Image|Description
 ---|---
 zavite|Based on Universal Blue's Bazzite images. For AMD gpu.
 zavite-deck|for steamdeck
-zavite-nvidia|Comes with Nvidia drivers
-zavite-asus-nvidia|Includes software controllers for Asus laptops.
-zaurora|based on Universal Blue's Aurora image. For AMD gpu.
 
 ## Installation
 
