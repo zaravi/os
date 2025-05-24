@@ -38,4 +38,9 @@ RUN rpm-ostree install \
     waydroid \
     just
 
+COPY cosign.pub /usr/share/ublue-os/cosign.pub
+COPY cosign.pub /etc/pki/containers/zaravi-os.pub
+COPY build_files/policy.json /usr/etc/containers/policy.json
+COPY build_files/image-info.json /usr/share/ublue-os/image-info.json
+
 RUN bootc container lint

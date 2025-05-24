@@ -1,0 +1,9 @@
+{
+    "image-name": "os",
+    "image-flavor": "main", 
+    "image-vendor": "zaravi",
+    "image-ref": "ostree-image-signed:docker://ghcr.io/zaravi/os",
+    "image-tag": "latest",
+    "base-image-name": "",
+    "fedora-version": "42"
+}
