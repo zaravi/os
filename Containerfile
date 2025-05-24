@@ -26,12 +26,17 @@ RUN curl -Lo /etc/yum.repos.d/starship.repo \
         https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-$(rpm -E %fedora)/lihaohong-yazi-fedora-$(rpm -E %fedora).repo
         
 RUN rpm-ostree install \
-    gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 \
-    gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel \
-    ffmpeg gstreamer-ffmpeg \
-    lame\* --exclude=lame-devel \
+    gstreamer1-plugins-bad-free \
+    gstreamer1-plugins-good \
+    gstreamer1-plugins-base \
+    gstreamer1-plugin-openh264 \
+    gstreamer1-libav \
+    ffmpeg \
+    gstreamer1-plugins-bad-freeworld \
+    gstreamer1-plugins-ugly \
     mesa-va-drivers-freeworld \
-    mesa-vdpau-drivers-freeworld
+    mesa-vdpau-drivers-freeworld \
+    pipewire-codec-aptx
 
 RUN rpm-ostree install \
     distrobox \
