@@ -24,7 +24,14 @@ RUN curl -Lo /etc/yum.repos.d/starship.repo \
         https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-$(rpm -E %fedora)/atim-starship-fedora-$(rpm -E %fedora).repo && \
     curl -Lo /etc/yum.repos.d/yazi.repo \
         https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-$(rpm -E %fedora)/lihaohong-yazi-fedora-$(rpm -E %fedora).repo
-
+        
+RUN rpm-ostree install \
+    gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 \
+    gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel \
+    ffmpeg gstreamer-ffmpeg \
+    lame\* --exclude=lame-devel \
+    mesa-va-drivers-freeworld \
+    mesa-vdpau-drivers-freeworld
 
 RUN rpm-ostree install \
     distrobox \
@@ -43,7 +50,7 @@ RUN rpm-ostree install \
     virt-manager \
     virt-viewer \
     waydroid \
-    just \
+    just
 
 RUN systemctl enable rpm-ostreed-automatic.timer && \
     systemctl enable flatpak-system-update.timer
