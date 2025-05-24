@@ -38,7 +38,7 @@ RUN rpm-ostree install \
     waydroid \
     just
 
-RUN rpm-ostree install && \
+RUN rpm-ostree install syncthing && \
     systemctl enable syncthing@.service
     
 RUN bootc container lint
