@@ -37,5 +37,8 @@ RUN rpm-ostree install \
     virt-viewer \
     waydroid \
     just
+
+RUN rpm-ostree install && \
+    systemctl enable syncthing@.service
     
 RUN bootc container lint
