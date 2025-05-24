@@ -26,12 +26,6 @@ RUN curl -Lo /etc/yum.repos.d/starship.repo \
         https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-$(rpm -E %fedora)/lihaohong-yazi-fedora-$(rpm -E %fedora).repo
         
 RUN rpm-ostree install \
-    ffmpeg \
-    mesa-va-drivers-freeworld \
-    mesa-vdpau-drivers-freeworld \
-    pipewire-codec-aptx
-
-RUN rpm-ostree install \
     distrobox \
     corectrl \
     alacritty \
