@@ -15,6 +15,34 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=tmpfs,dst=/tmp \
     /ctx/build.sh && \
     ostree container commit
+
+RUN rpm-ostree install \
+    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+    https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+    https://copr.fedorainfracloud.org/coprs/lihaohong/yazi/repo/fedora-%OS_VERSION%/lihaohong-yazi-fedora-%OS_VERSION%.repo
+
+RUN rpm-ostree install \
+    distrobox \
+    corectrl \
+    alacritty \
+    nu \
+    dash \
+    starship \
+    atuin \
+    zoxide \
+    helix \
+    yazi \
+    btop \
+    qemu \
+    edk2-ovmf \ 
+    virt-manager \
+    virt-viewer \
+    waydroid \
+    just \
+
+RUN systemctl enable rpm-ostreed-automatic.timer && \
+    systemctl enable flatpak-system-update.timer
     
 ### LINTING
 ## Verify final image and contents are correct.
